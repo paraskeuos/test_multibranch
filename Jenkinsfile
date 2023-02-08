@@ -25,6 +25,24 @@ pipeline {
         echo 'dev'
       }
     }
+    
+    stage('other') {
+      when {
+        not {
+          anyOf {
+            branch 'main';
+            branch 'dev
+          }
+        }
+      }
+      
+      steps {
+        echo 'some other branch'
+      }
+    }
+  }
+}
+  
   }
 }
 
